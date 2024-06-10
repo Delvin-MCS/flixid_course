@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "183479258366",
+    "project_id": "flixid-course-d6798",
+    "storage_bucket": "flixid-course-d6798.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:183479258366:android:3344f5c1f0e96402fa29af",
+        "android_client_info": {
+          "package_name": "com.delvinw.flixid_course"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD8XzeodBuhVozZ0rB_3X-1ipx1ORXqwmg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
