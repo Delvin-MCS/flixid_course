@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flixid_course/data/repositories/authentication_repository.dart';
 import 'package:flixid_course/domain/entities/result.dart';
 import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
@@ -9,10 +10,7 @@ class FirebaseAuthentication implements AuthenticationRepository {
       : _firebaseAuth = firebaseAuth ?? firebase_auth.FirebaseAuth.instance;
 
   @override
-  String? getLoggedInUserId() {
-    // TODO: implement getLoggedInUserId
-    throw UnimplementedError();
-  }
+  String? getLoggedInUserId() => _firebaseAuth.currentUser?.uid;
 
   @override
   Future<Result<String>> login(
@@ -27,15 +25,26 @@ class FirebaseAuthentication implements AuthenticationRepository {
   }
 
   @override
-  Future<Result<void>> logout() {
-    // TODO: implement logout
-    throw UnimplementedError();
+  Future<Result<void>> logout() async {
+    await _firebaseAuth.signOut();
+
+    if (_firebaseAuth.currentUser == null) {
+      return const Result.success(null);
+    } else {
+      return const Result.failed('failed to sign out');
+    }
   }
 
   @override
   Future<Result<String>> register(
-      {required String email, required String password}) {
-    // TODO: implement register
-    throw UnimplementedError();
+      {required String email, required String password}) async {
+    try {
+      var userCredential = await _firebaseAuth.createUserWithEmailAndPassword(
+          email: email, password: password);
+
+      return Result.success(userCredential.user!.uid);
+    } on FirebaseException catch (e) {
+      return Result.failed('${e.message}');
+    }
   }
 }
