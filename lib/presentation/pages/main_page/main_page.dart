@@ -1,7 +1,5 @@
 import 'package:flixid_course/domain/entities/user.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class MainPage extends StatelessWidget {
   final User user;

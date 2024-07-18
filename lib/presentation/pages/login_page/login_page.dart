@@ -1,5 +1,3 @@
-import 'package:flixid_course/data/dummies/dummy_authentication.dart';
-import 'package:flixid_course/data/dummies/dummy_user.dart';
 import 'package:flixid_course/domain/usecases/login/login.dart';
 import 'package:flixid_course/presentation/pages/main_page/main_page.dart';
 import 'package:flixid_course/presentation/providers/usecases/login_provider.dart';

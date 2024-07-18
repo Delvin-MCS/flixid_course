@@ -10,7 +10,7 @@ class TmdbMovie implements MovieRepository {
   final String _accessToken =
       "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiZGM0MWViOWI2NjFmNjdhMjU2OGUxNTExZGIwYWE5MiIsInN1YiI6IjY1ZTI4OGIwMjc4ZDhhMDE4NWJkNzQyNiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.DQYFJ9PJI3B7Q-18gNGffESGrS7T08C-2yiguArjBRw";
   late final Options _options = Options(headers: {
-    'Authorization': 'Bearer ${_accessToken}',
+    'Authorization': 'Bearer $_accessToken',
     'accept': 'application/json'
   });
 
