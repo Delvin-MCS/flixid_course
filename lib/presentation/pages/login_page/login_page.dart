@@ -1,3 +1,4 @@
+import 'package:flixid_course/presentation/extensions/build_context_extensions.dart';
 import 'package:flixid_course/presentation/providers/router/router_provider.dart';
 import 'package:flixid_course/presentation/providers/user_data/user_data_provider.dart';
 import 'package:flutter/material.dart';
@@ -16,8 +17,7 @@ class LoginPage extends ConsumerWidget {
             ref.read(routerProvider).goNamed('main');
           }
         } else if (next is AsyncError) {
-          ScaffoldMessenger.of(context)
-              .showSnackBar(SnackBar(content: Text(next.error.toString())));
+          context.showSnackBar(next.error.toString());
         }
       },
     );
