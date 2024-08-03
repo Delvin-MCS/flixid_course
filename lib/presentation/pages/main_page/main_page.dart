@@ -1,5 +1,6 @@
 import 'package:flixid_course/presentation/extensions/build_context_extensions.dart';
 import 'package:flixid_course/presentation/misc/methods.dart';
+import 'package:flixid_course/presentation/pages/profile_page/profile_page.dart';
 import 'package:flixid_course/presentation/providers/router/router_provider.dart';
 import 'package:flixid_course/presentation/providers/user_data/user_data_provider.dart';
 import 'package:flixid_course/presentation/widgets/bottom_nav_bar.dart';
@@ -49,7 +50,7 @@ class _MainPageState extends ConsumerState<MainPage> {
                 child: Text("Ticket Page"),
               ),
               Center(
-                child: Text("Profile Page"),
+                child: ProfilePage(),
               ),
             ],
           ),
