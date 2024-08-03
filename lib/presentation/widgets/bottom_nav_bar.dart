@@ -33,10 +33,10 @@ class BottomNavBar extends StatelessWidget {
                   offset: const Offset(0, -5))
             ]),
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: items
               .map(
-                (e) => GestureDetector(onTap: () => e.index, child: e),
+                (e) => GestureDetector(onTap: () => onTap(e.index), child: e),
               )
               .toList(),
         ),
