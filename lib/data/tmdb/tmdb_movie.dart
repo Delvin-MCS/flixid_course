@@ -8,7 +8,7 @@ import 'package:flixid_course/domain/entities/result.dart';
 class TmdbMovie implements MovieRepository {
   final Dio? _dio;
   final String _accessToken =
-      "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiZGM0MWViOWI2NjFmNjdhMjU2OGUxNTExZGIwYWE5MiIsInN1YiI6IjY1ZTI4OGIwMjc4ZDhhMDE4NWJkNzQyNiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.DQYFJ9PJI3B7Q-18gNGffESGrS7T08C-2yiguArjBRw";
+      "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiZGM0MWViOWI2NjFmNjdhMjU2OGUxNTExZGIwYWE5MiIsIm5iZiI6MTcyMjcwMTk2Ni4zNTIzOTMsInN1YiI6IjY1ZTI4OGIwMjc4ZDhhMDE4NWJkNzQyNiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.9CN5tq5OJfwma59K6QOdGlgHCiiMrLeu6EGzd90WaX8";
   late final Options _options = Options(headers: {
     'Authorization': 'Bearer $_accessToken',
     'accept': 'application/json'
@@ -56,7 +56,8 @@ class TmdbMovie implements MovieRepository {
   Future<Result<List<Movie>>> _getMovies(String category,
       {int page = 1}) async {
     try {
-      final response = await _dio?.get('https://api.themoviedb.org/3/movie/',
+      final response = await _dio?.get(
+          'https://api.themoviedb.org/3/movie/$category',
           options: _options);
 
       final results =
