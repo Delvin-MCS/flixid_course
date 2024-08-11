@@ -19,8 +19,9 @@ class TmdbMovie implements MovieRepository {
   @override
   Future<Result<List<Actor>>> getActors({required int id}) async {
     try {
-      final response =
-          await _dio!.get('https://api.themoviedb.org/3/movie/$id/credits');
+      final response = await _dio!.get(
+          'https://api.themoviedb.org/3/movie/$id/credits',
+          options: _options);
 
       final results = List<Map<String, dynamic>>.from(response.data['cast']);
 

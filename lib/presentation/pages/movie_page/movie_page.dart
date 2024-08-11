@@ -5,6 +5,7 @@ import 'package:flixid_course/presentation/pages/movie_page/methods/search_bar.d
 import 'package:flixid_course/presentation/pages/movie_page/methods/user_info.dart';
 import 'package:flixid_course/presentation/providers/movie/now_playing_provider.dart';
 import 'package:flixid_course/presentation/providers/movie/upcoming_provider.dart';
+import 'package:flixid_course/presentation/providers/router/router_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -30,7 +31,7 @@ class MoviePage extends ConsumerWidget {
               title: 'Now Playing',
               movies: ref.watch(nowPlayingProvider),
               onTap: (movie) {
-                //move to movie detail page
+                ref.read(routerProvider).pushNamed('detail', extra: movie);
               },
             ),
             verticalSpace(30),

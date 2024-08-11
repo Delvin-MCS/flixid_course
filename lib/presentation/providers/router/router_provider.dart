@@ -1,3 +1,5 @@
+import 'package:flixid_course/domain/entities/movie.dart';
+import 'package:flixid_course/presentation/pages/detail_page/detail_page.dart';
 import 'package:flixid_course/presentation/pages/login_page/login_page.dart';
 import 'package:flixid_course/presentation/pages/main_page/main_page.dart';
 import 'package:flixid_course/presentation/pages/register_page/register_page.dart';
@@ -22,5 +24,12 @@ Raw<GoRouter> router(RouterRef ref) => GoRouter(routes: [
         path: '/register',
         name: 'register',
         builder: (context, state) => const RegisterPage(),
+      ),
+      GoRoute(
+        path: '/detail',
+        name: 'detail',
+        builder: (context, state) => DetailPage(
+          movie: state.extra as Movie,
+        ),
       )
     ], initialLocation: '/login', debugLogDiagnostics: false);
