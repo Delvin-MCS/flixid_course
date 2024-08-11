@@ -1,4 +1,5 @@
 import 'package:flixid_course/domain/entities/movie.dart';
+import 'package:flixid_course/domain/entities/movie_detail.dart';
 import 'package:flixid_course/presentation/misc/constants.dart';
 import 'package:flixid_course/presentation/misc/methods.dart';
 import 'package:flixid_course/presentation/pages/detail_page/method/background.dart';
@@ -60,7 +61,15 @@ class DetailPage extends ConsumerWidget {
                 padding:
                     const EdgeInsets.symmetric(vertical: 40, horizontal: 20),
                 child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      MovieDetail? movieDetail = asyncMovieDetail.valueOrNull;
+
+                      if (movieDetail != null) {
+                        ref
+                            .read(routerProvider)
+                            .pushNamed('time-booking', extra: movieDetail);
+                      }
+                    },
                     style: ElevatedButton.styleFrom(
                         foregroundColor: backgroundColor,
                         backgroundColor: saffron,
