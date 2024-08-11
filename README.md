@@ -1,6 +1,13 @@
 # flixid_course
 
-A new Flutter project.
+This is a practice course project of Booking Movie Ticket FlixID from Udemy
+
+Task:
+  Login by email with firebase
+  Implement firestore, storage
+  Implement TMDB for movie data api
+  Implement SOLID Principle of Flutter
+  Implement freezed flutter
 
 ## Getting Started
 
