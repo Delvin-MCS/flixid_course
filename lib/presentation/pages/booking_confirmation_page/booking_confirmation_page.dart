@@ -34,7 +34,7 @@ class BookingConfirmationPage extends ConsumerWidget {
       body: ListView(
         children: [
           Padding(
-            padding: EdgeInsets.fromLTRB(24, 24, 24, 40),
+            padding: const EdgeInsets.fromLTRB(24, 24, 24, 40),
             child: Column(
               children: [
                 BackNavigationBar(
@@ -57,7 +57,8 @@ class BookingConfirmationPage extends ConsumerWidget {
                     transaction.title,
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                    style: const TextStyle(
+                        fontSize: 16, fontWeight: FontWeight.bold),
                   ),
                 ),
                 verticalSpace(5),
@@ -139,7 +140,7 @@ class BookingConfirmationPage extends ConsumerWidget {
                           backgroundColor: saffron,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10))),
-                      child: Text('Pay Now')),
+                      child: const Text('Pay Now')),
                 )
               ],
             ),

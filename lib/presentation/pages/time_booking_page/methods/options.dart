@@ -15,7 +15,7 @@ List<Widget> options<T>({
         padding: const EdgeInsets.only(left: 24),
         child: Text(
           title,
-          style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+          style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
         ),
       ),
       verticalSpace(10),

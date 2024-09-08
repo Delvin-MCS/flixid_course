@@ -1,5 +1,4 @@
 import 'package:flixid_course/presentation/misc/constants.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class FlixTextField extends StatelessWidget {

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 Widget movieScreen() => Container(
       width: 250,
       height: 50,
-      margin: EdgeInsets.only(top: 24, bottom: 10),
+      margin: const EdgeInsets.only(top: 24, bottom: 10),
       decoration: BoxDecoration(
         gradient: LinearGradient(
             colors: [saffron.withOpacity(0.33), Colors.transparent],

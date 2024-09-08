@@ -14,7 +14,7 @@ Widget transactionRow(
             width: 110,
             child: Text(
               title,
-              style: TextStyle(color: Colors.grey),
+              style: const TextStyle(color: Colors.grey),
             ),
           ),
           horizontalSpace(20),

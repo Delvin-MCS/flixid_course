@@ -10,8 +10,8 @@ List<Widget> castAndCrew({
   required WidgetRef ref,
 }) =>
     [
-      Padding(
-        padding: const EdgeInsets.only(left: 24.0),
+      const Padding(
+        padding: EdgeInsets.only(left: 24.0),
         child: Text(
           "Cast and crew",
           style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
@@ -45,7 +45,7 @@ List<Widget> castAndCrew({
                                       e.name,
                                       maxLines: 2,
                                       textAlign: TextAlign.center,
-                                      style: TextStyle(fontSize: 12),
+                                      style: const TextStyle(fontSize: 12),
                                     ),
                                   )
                                 ],

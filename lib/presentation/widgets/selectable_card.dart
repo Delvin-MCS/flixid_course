@@ -18,7 +18,7 @@ class SelectableCard extends StatelessWidget {
     return GestureDetector(
         onTap: isEnabled ? onTap : null,
         child: Container(
-          padding: EdgeInsets.all(10),
+          padding: const EdgeInsets.all(10),
           decoration: BoxDecoration(
             color: isSelected ? saffron.withOpacity(0.3) : null,
             borderRadius: BorderRadius.circular(5),

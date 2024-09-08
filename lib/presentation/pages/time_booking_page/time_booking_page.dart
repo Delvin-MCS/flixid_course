@@ -5,11 +5,9 @@ import 'package:flixid_course/presentation/misc/constants.dart';
 import 'package:flixid_course/presentation/misc/methods.dart';
 import 'package:flixid_course/presentation/pages/time_booking_page/methods/options.dart';
 import 'package:flixid_course/presentation/providers/router/router_provider.dart';
-import 'package:flixid_course/presentation/providers/usecases/top_up_provider.dart';
 import 'package:flixid_course/presentation/providers/user_data/user_data_provider.dart';
 import 'package:flixid_course/presentation/widgets/back_navigation_bar.dart';
 import 'package:flixid_course/presentation/widgets/network_image_card.dart';
-import 'package:flixid_course/presentation/widgets/selectable_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
@@ -54,7 +52,7 @@ class _TimeBookingPageState extends ConsumerState<TimeBookingPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: EdgeInsets.all(24),
+              padding: const EdgeInsets.all(24),
               child: BackNavigationBar(
                 widget.movieDetail.title,
                 onTap: () => ref.read(routerProvider).pop(),

@@ -34,8 +34,8 @@ class Seat extends StatelessWidget {
         child: Center(
           child: Text(
             number?.toString() ?? '',
-            style:
-                TextStyle(color: backgroundColor, fontWeight: FontWeight.bold),
+            style: const TextStyle(
+                color: backgroundColor, fontWeight: FontWeight.bold),
           ),
         ),
       ),
