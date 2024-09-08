@@ -42,7 +42,7 @@ class _TimeBookingPageState extends ConsumerState<TimeBookingPage> {
   final List<int> hours = List.generate(8, (index) => index + 12);
 
   String? selectedTheater;
-  DateTime? selectedTDate;
+  DateTime? selectedDate;
   int? selectedHour;
 
   @override
@@ -83,10 +83,10 @@ class _TimeBookingPageState extends ConsumerState<TimeBookingPage> {
             ...options(
               title: 'Select date',
               options: dates,
-              selectedItem: selectedTDate,
+              selectedItem: selectedDate,
               converter: (date) => DateFormat('EEE, d MMM y').format(date),
               onTap: (object) => setState(() {
-                selectedTDate = object;
+                selectedDate = object;
               }),
             ),
             verticalSpace(24),
@@ -96,9 +96,9 @@ class _TimeBookingPageState extends ConsumerState<TimeBookingPage> {
               selectedItem: selectedHour,
               converter: (object) => '$object:00',
               isOptionEnable: (hour) =>
-                  selectedTDate != null &&
-                  DateTime(selectedTDate!.year, selectedTDate!.month,
-                          selectedTDate!.day, hour)
+                  selectedDate != null &&
+                  DateTime(selectedDate!.year, selectedDate!.month,
+                          selectedDate!.day, hour)
                       .isAfter(DateTime.now()),
               onTap: (object) => setState(() {
                 selectedHour = object;
@@ -116,7 +116,7 @@ class _TimeBookingPageState extends ConsumerState<TimeBookingPage> {
                         borderRadius: BorderRadius.circular(10)),
                   ),
                   onPressed: () {
-                    if (selectedTDate == null &&
+                    if (selectedDate == null &&
                         selectedHour == null &&
                         selectedTheater == null) {
                       context.showSnackBar('Please select all options');
@@ -127,11 +127,11 @@ class _TimeBookingPageState extends ConsumerState<TimeBookingPage> {
                           adminFee: 3000,
                           total: 0,
                           watchingTime: DateTime(
-                                  selectedTDate!.year,
-                                  selectedTDate!.month,
-                                  selectedTDate!.day,
+                                  selectedDate!.year,
+                                  selectedDate!.month,
+                                  selectedDate!.day,
                                   selectedHour!)
-                              .microsecondsSinceEpoch,
+                              .millisecondsSinceEpoch,
                           transactionImage: widget.movieDetail.posterPath,
                           theaterName: selectedTheater);
 
