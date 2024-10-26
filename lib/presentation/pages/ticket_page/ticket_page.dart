@@ -15,26 +15,44 @@ class TicketPage extends ConsumerWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: ref.watch(transactionDataProvider).when(
-                  data: (transactions) => (transactions
-                          .where((element) =>
-                              element.title != 'Top Up' &&
-                              element.watchingTime! >=
-                                  DateTime.now().millisecondsSinceEpoch)
-                          .toList()
-                        ..sort(
-                          (a, b) => a.watchingTime!.compareTo(b.watchingTime!),
-                        ))
-                      .map(
-                        (transaction) => Padding(
-                          padding: const EdgeInsets.only(bottom: 20),
-                          child: Ticket(
-                            transaction: transaction,
+                  data: (transactions) {
+                    if (transactions.isNotEmpty) {
+                      return (transactions
+                              .where((element) =>
+                                  element.title != 'Top Up' &&
+                                  element.watchingTime! >=
+                                      DateTime.now().millisecondsSinceEpoch)
+                              .toList()
+                            ..sort(
+                              (a, b) =>
+                                  a.watchingTime!.compareTo(b.watchingTime!),
+                            ))
+                          .map(
+                            (transaction) => Padding(
+                              padding: const EdgeInsets.only(bottom: 20),
+                              child: Ticket(
+                                transaction: transaction,
+                              ),
+                            ),
+                          )
+                          .toList();
+                    } else {
+                      return [
+                        Center(
+                          child: Text(
+                            'no data',
+                            style: TextStyle(
+                                fontStyle: FontStyle.italic,
+                                fontSize: 12,
+                                color: Colors.white.withOpacity(0.5)),
                           ),
-                        ),
-                      )
-                      .toList(),
+                        )
+                      ];
+                    }
+                  },
                   error: (error, stackTrace) => [],
-                  loading: () => const [CircularProgressIndicator()],
+                  loading: () =>
+                      const [Center(child: CircularProgressIndicator())],
                 ),
           ),
         )
