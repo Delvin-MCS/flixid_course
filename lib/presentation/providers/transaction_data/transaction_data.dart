@@ -39,7 +39,7 @@ class TransactionData extends _$TransactionData {
 
       GetTransactions getTransactions = ref.read(getTransactionProvider);
 
-      var result = getTransactions(GetTransactionsParam(uid: user.uid));
+      var result = await getTransactions(GetTransactionsParam(uid: user.uid));
 
       switch (result) {
         case Success(value: final transactions):
