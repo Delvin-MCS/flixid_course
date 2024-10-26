@@ -11,7 +11,7 @@ List<Widget> userInfo(WidgetRef ref) => [
           shape: BoxShape.circle,
           border: Border.all(color: Colors.grey, width: 1),
           image: DecorationImage(
-              image: ref.watch(userDataProvider).valueOrNull!.photoURL != null
+              image: ref.watch(userDataProvider).valueOrNull?.photoURL != null
                   ? NetworkImage(
                           ref.watch(userDataProvider).valueOrNull!.photoURL!)
                       as ImageProvider

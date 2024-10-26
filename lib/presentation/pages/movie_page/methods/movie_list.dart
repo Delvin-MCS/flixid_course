@@ -3,7 +3,6 @@ import 'package:flixid_course/presentation/widgets/network_image_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:path/path.dart';
 
 List<Widget> movieList(
         {required String title,
@@ -43,7 +42,7 @@ List<Widget> movieList(
             );
           },
           error: (error, stackTrace) {
-            const SizedBox();
+            return const SizedBox();
           },
           loading: () => const Center(
             child: CircularProgressIndicator(),

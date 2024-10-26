@@ -1,6 +1,7 @@
 import 'package:flixid_course/presentation/misc/methods.dart';
 import 'package:flixid_course/presentation/pages/profile_page/methods/profile_item.dart';
 import 'package:flixid_course/presentation/pages/profile_page/methods/user_info.dart';
+import 'package:flixid_course/presentation/providers/router/router_provider.dart';
 import 'package:flixid_course/presentation/providers/user_data/user_data_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -22,7 +23,10 @@ class ProfilePage extends ConsumerWidget {
               const Divider(),
               profileItem('Update Profile'),
               verticalSpace(20),
-              profileItem('My Wallet'),
+              profileItem(
+                'My Wallet',
+                onTap: () => ref.read(routerProvider).pushNamed('wallet'),
+              ),
               verticalSpace(20),
               profileItem('Change Password'),
               verticalSpace(20),

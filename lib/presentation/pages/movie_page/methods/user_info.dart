@@ -1,5 +1,6 @@
 import 'package:flixid_course/presentation/extensions/int_extension.dart';
 import 'package:flixid_course/presentation/misc/methods.dart';
+import 'package:flixid_course/presentation/providers/router/router_provider.dart';
 import 'package:flixid_course/presentation/providers/user_data/user_data_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -17,8 +18,10 @@ Widget userInfo(WidgetRef ref) => Padding(
               image: DecorationImage(
                   image:
                       ref.watch(userDataProvider).valueOrNull?.photoURL != null
-                          ? ref.watch(userDataProvider).valueOrNull?.photoURL!
-                              as ImageProvider
+                          ? NetworkImage(ref
+                              .watch(userDataProvider)
+                              .valueOrNull!
+                              .photoURL!) as ImageProvider
                           : const AssetImage('assets/pp-placeholder.png'),
                   fit: BoxFit.cover),
             ),
@@ -43,7 +46,7 @@ Widget userInfo(WidgetRef ref) => Padding(
               verticalSpace(5),
               GestureDetector(
                 onTap: () {
-                  //go to wallet page
+                  ref.read(routerProvider).pushNamed('wallet');
                 },
                 child: Row(
                   children: [
